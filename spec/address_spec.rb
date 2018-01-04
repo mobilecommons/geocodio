@@ -21,7 +21,7 @@ describe Geocodio::Address do
     it 'has a street' do
       expect(address.street).to eq('Colorado')
     end
-    
+
     it 'has a formatted_street' do
       expect(address.formatted_street).to eq('W Colorado Blvd')
     end
@@ -76,7 +76,7 @@ describe Geocodio::Address do
       it 'has a street' do
         expect(address.street).to eq('Colorado')
       end
-      
+
       it 'has a formatted_street' do
         expect(address.formatted_street).to eq('W Colorado Blvd')
       end
@@ -115,7 +115,7 @@ describe Geocodio::Address do
         expect(address.accuracy).to eq(1)
       end
     end
-    
+
     context 'has postdirectional' do
       subject(:address) do
         VCR.use_cassette('geocode_with_postdirectional') do
@@ -130,11 +130,11 @@ describe Geocodio::Address do
       it 'has a street' do
         expect(address.street).to eq('Pennsylvania')
       end
-      
+
       it 'has a formatted_street' do
         expect(address.formatted_street).to eq('Pennsylvania Ave NW')
       end
-      
+
       it 'has a postdirectional' do
         expect(address.postdirectional).to eq('NW')
       end
@@ -174,11 +174,28 @@ describe Geocodio::Address do
       end
     end
 
+    context 'additional fields with multiple districts for a given postal code' do
+      subject(:address) do
+        VCR.use_cassette('geocode_with_fields_for_postal_code') do
+          geocodio.geocode(['44646'], fields: %w[cd]).best
+        end
+      end
+
+      it 'return an array of districts' do
+        expect(address.congressional_districts).to eq([7, 16])
+      end
+
+    end
+
     context 'with additional fields' do
       subject(:address) do
         VCR.use_cassette('geocode_with_fields') do
           geocodio.geocode(['54 West Colorado Boulevard Pasadena CA 91105'], fields: %w[cd stateleg school timezone]).best
         end
+      end
+
+      it 'return an array of districts' do
+        expect(address.congressional_districts).to eq([27])
       end
 
       it 'has a congressional district' do

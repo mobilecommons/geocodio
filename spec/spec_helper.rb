@@ -6,7 +6,7 @@ require 'geocodio'
 require 'webmock/rspec'
 require 'vcr'
 
-ENV['GEOCODIO_API_KEY'] ||= 'secret_api_key'
+ENV['GEOCODIO_API_KEY'] ||= '5e360236b94b73b958b32276865b08068036923'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'

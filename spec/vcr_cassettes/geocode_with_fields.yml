@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.geocod.io/v1/geocode?api_key=secret_api_key&fields=cd,stateleg,school,timezone&q=54%20West%20Colorado%20Boulevard%20Pasadena%20CA%2091105
+    uri: http://api.geocod.io/v1.1/geocode?api_key=secret_api_key&fields=cd,stateleg,school,timezone&q=54%20West%20Colorado%20Boulevard%20Pasadena%20CA%2091105
     body:
       encoding: US-ASCII
       string: ''
@@ -19,36 +19,60 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.2.1
+      - nginx/1.12.2
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
+      X-Powered-By:
+      - PHP/7.1.9
       Cache-Control:
       - no-cache
       Date:
-      - Wed, 22 Jul 2015 17:24:23 GMT
+      - Thu, 04 Jan 2018 19:43:47 GMT
+      Request-Handler:
+      - api2
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Expose-Headers:
+      - Request-Handler
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Robots-Tag:
+      - none
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"input":{"address_components":{"number":"54","predirectional":"W","street":"Colorado","suffix":"Blvd","formatted_street":"W
-        Colorado Blvd","city":"Pasadena","state":"CA","zip":"91105"},"formatted_address":"54
+        Colorado Blvd","city":"Pasadena","state":"CA","zip":"91105","country":"US"},"formatted_address":"54
         W Colorado Blvd, Pasadena, CA 91105"},"results":[{"address_components":{"number":"54","predirectional":"W","street":"Colorado","suffix":"Blvd","formatted_street":"W
-        Colorado Blvd","city":"Pasadena","county":"Los Angeles County","state":"CA","zip":"91105"},"formatted_address":"54
-        W Colorado Blvd, Pasadena, CA 91105","location":{"lat":34.145764409091,"lng":-118.15159636364},"accuracy":1,"accuracy_type":"range_interpolation","source":"TIGER\/Line\u00ae
-        dataset from the US Census Bureau","fields":{"congressional_district":{"name":"Congressional
-        District 27","district_number":27,"congress_number":"114th","congress_years":"2015-2017"},"state_legislative_districts":{"house":{"name":"Assembly
-        District 41","district_number":41},"senate":{"name":"State Senate District
-        25","district_number":25}},"school_districts":{"unified":{"name":"Pasadena
-        Unified School District","lea_code":"0629940","grade_low":"KG","grade_high":"12"}},"timezone":{"name":"PST","utc_offset":-8,"observes_dst":true}}},{"address_components":{"number":"54","predirectional":"W","street":"Colorado","suffix":"Blvd","formatted_street":"W
-        Colorado Blvd","city":"Pasadena","county":"Los Angeles County","state":"CA","zip":"91105"},"formatted_address":"54
-        W Colorado Blvd, Pasadena, CA 91105","location":{"lat":34.1457615375,"lng":-118.15193275},"accuracy":0.8,"accuracy_type":"range_interpolation","source":"TIGER\/Line\u00ae
-        dataset from the US Census Bureau","fields":{"congressional_district":{"name":"Congressional
-        District 27","district_number":27,"congress_number":"114th","congress_years":"2015-2017"},"state_legislative_districts":{"house":{"name":"Assembly
-        District 41","district_number":41},"senate":{"name":"State Senate District
-        25","district_number":25}},"school_districts":{"unified":{"name":"Pasadena
+        Colorado Blvd","city":"Pasadena","county":"Los Angeles County","state":"CA","zip":"91105","country":"US"},"formatted_address":"54
+        W Colorado Blvd, Pasadena, CA 91105","location":{"lat":34.145375,"lng":-118.151622},"accuracy":1,"accuracy_type":"rooftop","source":"Los
+        Angeles","fields":{"congressional_districts":[{"name":"Congressional District
+        27","district_number":27,"congress_number":"115th","congress_years":"2017-2019","proportion":1,"current_legislator":{"bio":{"last_name":"Chu","first_name":"Judy","birthday":"1953-07-07","gender":"F","party":"Democrat"},"contact":{"url":"https:\/\/chu.house.gov","address":"2423
+        Rayburn HOB; Washington DC 20515-0527","phone":"202-225-5464","contact_form":null},"social":{"rss_url":"http:\/\/chu.house.gov\/rss.xml","twitter":"RepJudyChu","facebook":"RepJudyChu","youtube":"RepJudyChu","youtube_id":"UCfcbYOvdEXZNelM8T05nK-w"},"references":{"bioguide_id":"C001080","thomas_id":"01970","opensecrets_id":"N00030600","lis_id":null,"cspan_id":"92573","govtrack_id":"412379","votesmart_id":"16539","ballotpedia_id":"Judy
+        Chu","washington_post_id":null,"icpsr_id":"20955","wikipedia_id":"Judy Chu"},"source":"Data
+        collected and aggregated by https:\/\/github.com\/unitedstates\/"}}],"state_legislative_districts":{"senate":{"name":"State
+        Senate District 25","district_number":"25"},"house":{"name":"Assembly District
+        41","district_number":"41"}},"school_districts":{"unified":{"name":"Pasadena
+        Unified School District","lea_code":"0629940","grade_low":"KG","grade_high":"12"}},"timezone":{"name":"PST","utc_offset":-8,"observes_dst":true}}},{"address_components":{"number":"54","predirectional":"E","street":"Colorado","suffix":"Blvd","formatted_street":"E
+        Colorado Blvd","city":"Pasadena","county":"Los Angeles County","state":"CA","zip":"91105","country":"US"},"formatted_address":"54
+        E Colorado Blvd, Pasadena, CA 91105","location":{"lat":34.145499,"lng":-118.14932},"accuracy":0.7,"accuracy_type":"rooftop","source":"Los
+        Angeles","fields":{"congressional_districts":[{"name":"Congressional District
+        27","district_number":27,"congress_number":"115th","congress_years":"2017-2019","proportion":1,"current_legislator":{"bio":{"last_name":"Chu","first_name":"Judy","birthday":"1953-07-07","gender":"F","party":"Democrat"},"contact":{"url":"https:\/\/chu.house.gov","address":"2423
+        Rayburn HOB; Washington DC 20515-0527","phone":"202-225-5464","contact_form":null},"social":{"rss_url":"http:\/\/chu.house.gov\/rss.xml","twitter":"RepJudyChu","facebook":"RepJudyChu","youtube":"RepJudyChu","youtube_id":"UCfcbYOvdEXZNelM8T05nK-w"},"references":{"bioguide_id":"C001080","thomas_id":"01970","opensecrets_id":"N00030600","lis_id":null,"cspan_id":"92573","govtrack_id":"412379","votesmart_id":"16539","ballotpedia_id":"Judy
+        Chu","washington_post_id":null,"icpsr_id":"20955","wikipedia_id":"Judy Chu"},"source":"Data
+        collected and aggregated by https:\/\/github.com\/unitedstates\/"}}],"state_legislative_districts":{"senate":{"name":"State
+        Senate District 25","district_number":"25"},"house":{"name":"Assembly District
+        41","district_number":"41"}},"school_districts":{"unified":{"name":"Pasadena
         Unified School District","lea_code":"0629940","grade_low":"KG","grade_high":"12"}},"timezone":{"name":"PST","utc_offset":-8,"observes_dst":true}}}]}'
     http_version: 
-  recorded_at: Wed, 22 Jul 2015 17:24:23 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Thu, 04 Jan 2018 19:43:47 GMT
+recorded_with: VCR 3.0.3

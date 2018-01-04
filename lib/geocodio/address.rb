@@ -70,7 +70,7 @@ module Geocodio
 
     def set_congressional_districts(districts)
       return if districts.empty?
-      @congressional_districts = districts.map{|d| d.district_number}
+      @congressional_districts = districts.map{|d| d["district_number"]}
     end
 
     def set_congressional_district(district)
