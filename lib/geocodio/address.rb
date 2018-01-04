@@ -12,7 +12,7 @@ module Geocodio
     alias :lat :latitude
     alias :lng :longitude
 
-    attr_reader :congressional_district, :house_district, :senate_district,
+    attr_reader :congressional_districts,:congressional_district, :house_district, :senate_district,
                 :unified_school_district, :elementary_school_district,
                 :secondary_school_district
 
@@ -52,6 +52,7 @@ module Geocodio
       @state            = attributes['state']
       @zip              = attributes['zip']
       @county           = attributes['county']
+      @congressional_districts = nil
     end
 
     def set_coordinates(coordinates)
@@ -61,9 +62,15 @@ module Geocodio
 
     def set_additional_fields(fields)
       set_congressional_district(fields['congressional_district'])     if fields['congressional_district']
+      set_congressional_districts(fields['congressional_districts'])     if fields['congressional_districts']
       set_legislative_districts(fields['state_legislative_districts']) if fields['state_legislative_districts']
       set_school_districts(fields['school_districts'])                 if fields['school_districts']
       set_timezone(fields['timezone'])                                 if fields['timezone']
+    end
+
+    def set_congressional_districts(districts)
+      return if districts.empty?
+      @congressional_districts = districts.map{|d| d.district_number}
     end
 
     def set_congressional_district(district)
